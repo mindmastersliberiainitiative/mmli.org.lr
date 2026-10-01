@@ -635,6 +635,29 @@
       padding: 24px;
       box-shadow: 0 8px 22px rgba(8, 33, 61, 0.08);
     }
+  
+    /* ===== Olympiad registration card ===== */
+    .oly-card{position:relative;display:block;padding:2px;border-radius:24px;overflow:hidden;background:#08213D;text-decoration:none;color:#fff;box-shadow:0 14px 34px rgba(8,33,61,.28);transition:transform .25s ease,box-shadow .25s ease}
+    .oly-card::before{content:"";position:absolute;inset:-80%;background:conic-gradient(from 0deg,transparent 0 68%,#ffc400 84%,transparent 100%);animation:oly-spin 7s linear infinite}
+    .oly-card:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(8,33,61,.38);color:#fff}
+    .oly-card:focus-visible{outline:3px solid #ffc400;outline-offset:4px}
+    .oly-inner{position:relative;display:flex;align-items:center;gap:28px;padding:38px 34px;border-radius:22px;background:linear-gradient(135deg,#08213D 0%,#123a63 100%);overflow:hidden}
+    .oly-copy{position:relative;z-index:1;flex:1;min-width:0}
+    .oly-card h2{font-weight:800;margin:14px 0 10px;color:#fff;font-size:clamp(1.5rem,4vw,2.2rem)}
+    .oly-card p{color:#d6e2f0;margin:0 0 16px;max-width:560px}
+    .oly-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+    .oly-tags span{padding:5px 12px;border-radius:999px;border:1px solid rgba(255,196,0,.45);color:#ffd452;font-size:.82rem;font-weight:600}
+    .oly-btn{display:inline-block;padding:13px 26px;border-radius:999px;background:#ffc400;color:#08213D;font-weight:800;animation:oly-pulse 2.6s ease-out infinite}
+    .oly-card:hover .oly-btn{background:#ffd452}
+    .oly-orb{position:relative;flex:0 0 190px;height:190px;display:flex;align-items:center;justify-content:center}
+    .oly-orb::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px dashed rgba(255,196,0,.5);animation:oly-spin 18s linear infinite}
+    .oly-orb b{font:700 4.2rem/1 Georgia,serif;color:#ffd452;animation:oly-float 4s ease-in-out infinite}
+    .oly-sym{position:absolute;color:#fff;opacity:.14;font:700 2.2rem/1 Georgia,serif;animation:oly-float 6s ease-in-out infinite}
+    @keyframes oly-spin{to{transform:rotate(360deg)}}
+    @keyframes oly-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    @keyframes oly-pulse{0%{box-shadow:0 0 0 0 rgba(255,196,0,.55)}70%,100%{box-shadow:0 0 0 14px rgba(255,196,0,0)}}
+    @media (max-width:767px){.oly-orb{display:none}.oly-inner{padding:30px 22px}}
+    @media (prefers-reduced-motion:reduce){.oly-card::before,.oly-orb::before,.oly-orb b,.oly-sym,.oly-btn{animation:none}.oly-card,.oly-card:hover{transition:none;transform:none}}
   </style>
 </head>
 <body>
@@ -688,6 +711,26 @@
     <h2 class="fw-bold">Back-to-School Academic Quiz Challenge 2026</h2>
     <p class="fst-italic mb-3">"Unleashing the Genius Within" &mdash; 16 Junior High & 16 Senior High schools competing</p>
     <a href="announcement.html" class="btn btn-dark btn-lg">Register Now</a>
+  </div>
+</section>
+
+<!-- OLYMPIAD TRAINING REGISTRATION CARD -->
+<section class="reveal py-5 bg-light" id="olympiad-register">
+  <div class="container">
+    <a href="olympiad-registration.html" class="oly-card" aria-label="Register for the MMLI Olympiad Training Program">
+      <div class="oly-inner">
+        <span class="oly-sym" aria-hidden="true" style="left:46%;top:14px">&pi;</span>
+        <span class="oly-sym" aria-hidden="true" style="left:58%;bottom:10px;animation-delay:-3s">&radic;</span>
+        <div class="oly-copy">
+          <span class="mmli-eyebrow on-dark">Student Registration</span>
+          <h2>MMLI Olympiad Training Program</h2>
+          <p>Mathematics and Physics Olympiad coaching for secondary school students, from first steps to competition level. The MMLI team reviews every application.</p>
+          <div class="oly-tags"><span>Mathematics Olympiad</span><span>Physics Olympiad</span><span>Grades 7&ndash;12</span><span>In-person or online</span></div>
+          <span class="oly-btn">Register for Olympiad Training</span>
+        </div>
+        <div class="oly-orb" aria-hidden="true"><b>&sum;</b></div>
+      </div>
+    </a>
   </div>
 </section>
 
