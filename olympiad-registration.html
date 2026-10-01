@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MMLI Olympiad Training Program — Registration</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+:root{--n:#08213D;--g:#ffc400;--gr:#6AAA3A;--bg:#F3F6FA;--t:#14213D;--e:#B3261E;--b:#C3CFE0}
+*{box-sizing:border-box}
+body{margin:0;font:17px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--t)}
+.hd{background:var(--n);color:#fff;display:flex;gap:14px;align-items:center;padding:14px 16px;border-bottom:4px solid var(--g)}
+.hd img{width:64px;height:64px;background:#fff;border-radius:8px;padding:3px}
+.hd h1{font-size:1.15rem;margin:0;letter-spacing:.02em}.hd p{margin:2px 0 0;color:var(--g);font-weight:600;font-size:.85rem;letter-spacing:.08em}
+.prog{position:sticky;top:0;z-index:5;background:#fff;box-shadow:0 2px 6px #0002;padding:8px 12px}
+.dots{display:flex;justify-content:space-between;max-width:720px;margin:auto}
+.dot{width:28px;height:28px;border-radius:50%;border:2px solid var(--b);background:#fff;font:700 .75rem system-ui;color:var(--t);padding:0}
+.dot.on{background:var(--n);border-color:var(--n);color:#fff;outline:3px solid var(--g)}.dot.ok{background:var(--gr);border-color:var(--gr);color:#fff}
+.lbl{max-width:720px;margin:6px auto 0;font-weight:700;color:var(--n);font-size:.95rem}
+.wrap{max-width:720px;margin:auto;padding:16px}
+.step{background:#fff;border-radius:12px;padding:18px;border:1px solid var(--b)}
+.step h2{margin:0 0 4px;color:var(--n);font-size:1.3rem}
+.fld{margin:16px 0}.fld label.l,legend{display:block;font-weight:700;margin-bottom:6px;padding:0}
+fieldset{border:0;margin:0;padding:0}
+.req{color:var(--e)}
+input[type=text],input[type=date],input[type=tel],input[type=email],select,textarea{width:100%;min-height:48px;font:inherit;padding:10px 12px;border:2px solid var(--b);border-radius:8px;background:#fff;color:var(--t)}
+textarea{min-height:120px}
+.opt{display:flex;gap:12px;align-items:center;min-height:48px;padding:10px 12px;margin:6px 0;border:2px solid var(--b);border-radius:10px;cursor:pointer}
+.opt input{width:22px;height:22px;flex:none;accent-color:var(--n)}
+.opt:has(input:checked){border-color:var(--n);background:#EAF1FA}
+.opt small{display:block;color:#42506b;font-size:.85rem}
+:focus-visible{outline:3px solid var(--g);outline-offset:2px}
+.bad input,.bad select,.bad textarea,.bad .opt{border-color:var(--e)}
+.err{color:var(--e);font-weight:600;font-size:.9rem}.err:not(:empty)::before{content:"⚠ "}
+.note{background:#FFF7E0;border-left:4px solid var(--g);padding:10px 12px;border-radius:6px}
+.obtn{min-height:50px;padding:0 22px;border-radius:10px;font:700 1rem system-ui;border:2px solid var(--n);background:#fff;color:var(--n);cursor:pointer}
+.obtn.p{background:var(--n);color:#fff}.obtn:disabled{opacity:.6;cursor:wait}
+#pv{max-width:180px;border-radius:8px;display:block;margin:10px 0}
+.rv{border:1px solid var(--b);border-radius:10px;padding:10px 12px;margin:10px 0}
+.rv h3{display:flex;justify-content:space-between;align-items:center;margin:0 0 6px;font-size:1rem;color:var(--n)}
+.rv h3 button{min-height:36px;padding:0 12px;border:2px solid var(--n);background:#fff;color:var(--n);border-radius:8px;font-weight:700}
+.rv p{margin:3px 0;font-size:.92rem;overflow-wrap:anywhere}
+#eb{background:#FDECEA;border:2px solid var(--e);padding:12px;border-radius:10px;margin-top:14px}
+.hp{position:absolute;left:-9999px}
+.done{background:#fff;border-radius:12px;border-top:6px solid var(--gr);padding:20px;text-align:center}
+.done .id{font:800 1.5rem system-ui;color:var(--n);margin:6px 0}.done dl{text-align:left;max-width:380px;margin:12px auto}.done dt{font-weight:700;color:#42506b;font-size:.85rem}.done dd{margin:0 0 8px}
+@media print{.hd,.prog,.noprint{display:none}}
+.wrap{overflow-x:clip}
+.bar{height:4px;max-width:720px;margin:6px auto 0;background:#E3EAF4;border-radius:2px;overflow:hidden}.bar i{display:block;height:100%;width:10%;background:var(--g)}
+.hd{position:relative;overflow:hidden}.hd>*{position:relative}.sym{position:absolute!important;color:#fff;opacity:.13;font:700 2rem Georgia,serif;pointer-events:none}
+@media (prefers-reduced-motion:no-preference){
+.step.fwd{animation:inF .4s cubic-bezier(.2,.8,.2,1)}.step.back{animation:inB .4s cubic-bezier(.2,.8,.2,1)}
+.step .fld{animation:rise .45s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*45ms)}
+.step .fld.bad{animation:shake .35s}
+.dot{transition:background .3s,border-color .3s}.dot.on{animation:pop .45s}
+.bar i{transition:width .55s cubic-bezier(.2,.8,.2,1)}
+.opt{transition:border-color .2s,background .2s,transform .15s,box-shadow .2s}.opt:hover{transform:translateY(-2px);box-shadow:0 4px 10px #06428222}
+.opt:has(input:checked){animation:pop .3s}
+.obtn{transition:transform .15s,background .2s}.obtn:hover{transform:translateY(-2px)}.obtn:active{transform:scale(.97)}
+.sym{animation:drift 9s ease-in-out infinite alternate}
+.done{animation:inF .5s cubic-bezier(.2,.8,.2,1)}
+.ck circle{stroke-dasharray:151;stroke-dashoffset:151;animation:draw .6s .2s forwards}.ck path{stroke-dasharray:40;stroke-dashoffset:40;animation:draw .4s .75s forwards}
+.done .id{animation:pop .6s .95s both}
+@keyframes inF{from{opacity:0;transform:translateX(40px)}}@keyframes inB{from{opacity:0;transform:translateX(-40px)}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}}@keyframes pop{50%{transform:scale(1.05)}}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+@keyframes drift{to{transform:translateY(-14px) rotate(10deg)}}@keyframes draw{to{stroke-dashoffset:0}}}
+.pill{display:inline-block;background:var(--g);color:var(--t);font:700 .72rem system-ui;padding:3px 10px;border-radius:99px;margin-bottom:6px}
+html{scroll-padding-top:150px}.prog{top:var(--navh,64px)}legend{float:none;font-size:1rem}
+@media print{.navbar,footer{display:none}}
+</style></head><body>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
+      <img src="logo.png" alt="MMLI Logo" height="36" class="me-2">
+      Mind Masters Liberia Initiative
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="programs.html">Programs</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://mindmastersliberiainitiative.github.io/academy.org.lr/" target="_blank" rel="noopener" aria-label="Olympiad Academy (opens in a new tab)">
+            Olympiad Academy <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 16 16" fill="currentColor" style="vertical-align:0.1em; margin-left:2px;" aria-hidden="true"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/><path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/></svg>
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="resources.html">Academic Resources</a></li>
+        <li class="nav-item"><a class="nav-link" href="team.html">Our Team</a></li>
+        <li class="nav-item"><a class="nav-link" href="membership.html">Membership</a></li>
+        <li class="nav-item"><a class="nav-link" href="announcement.html">Announcement</a></li>
+        <li class="nav-item"><a class="nav-link" href="verify.html">Verify Certificate</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="hd bg-primary"><div><span class="pill">Student Registration · Mathematics &amp; Physics</span><h1>MMLI Olympiad Training Program</h1><p>THINK • SOLVE • COMPETE • EXCEL</p></div>
+<span class="sym" aria-hidden="true" style="right:8%;top:6px">∑</span><span class="sym" aria-hidden="true" style="right:22%;bottom:2px;animation-delay:-3s">π</span><span class="sym" aria-hidden="true" style="right:36%;top:10px;animation-delay:-6s">√</span></header>
+<nav class="prog" id="prog" aria-label="Registration progress"><div class="dots" id="dots"></div><div class="bar"><i id="bar"></i></div><div class="lbl" id="lbl" aria-live="polite"></div></nav>
+<main class="wrap"><form id="F" novalidate autocomplete="off"></form><div id="done" class="done" hidden></div></main>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white text-center py-3 mt-4">
+  <div class="mb-2">
+    <a href="https://www.facebook.com/profile.php?id=61575249692386" target="_blank" rel="noopener" class="text-white text-decoration-none">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16" class="me-1">
+        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.219l-.355 2.326H8.75V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+      </svg>
+      Follow us on Facebook
+    </a>
+  </div>
+  <div class="mb-2">
+    <a href="https://mindmastersliberiainitiative.github.io/academy.org.lr/" target="_blank" rel="noopener" class="text-white text-decoration-none" aria-label="MMLI Olympiad Academy (opens in a new tab)">
+      MMLI Olympiad Academy &rarr;
+    </a>
+  </div>
+  &copy; 2025 Mind Masters Liberia Initiative
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* ===== CONFIG ===== */
+const API='https://script.google.com/macros/s/AKfycbyIAI_nmtNpkRB5fuopJVzPlm_-FqHjucuc9Sq34o4RmUW0bnJpvylxDldmI-8yYjsV/exec';           // Apps Script web app URL
+const SITE='https://mindmastersliberiainitiative.github.io/mmli.org.lr/';
+const PHYSICS_TOPICS=[];                            // e.g. ['Mechanics','Waves'] — add later; Math topics never mix in
+const MATH=['Algebra','Combinatorics','Geometry','Number Theory'];
+const CO=['Bomi','Bong','Gbarpolu','Grand Bassa','Grand Cape Mount','Grand Gedeh','Grand Kru','Lofa','Margibi','Maryland','Montserrado','Nimba','River Cess','River Gee','Sinoe'];
+const GR=['Grade 7','Grade 8','Grade 9','Grade 10','Grade 11','Grade 12','Other'];
+const YN=['Yes','No'], MS='Mathematics Olympiad', PS='Physics Olympiad';
+const T=(n,l,r,m,x)=>({n,l,k:'text',r,m,...x}), P=(n,l,r,m,x)=>({n,l,k:'tel',r,m,...x});
+const WMath=['Subject',MS], WPhys=['Subject',PS];
+/* ===== STEPS ===== */
+const S=[
+{t:'Select your Olympiad training program',f:[
+ {n:'Subject',l:'Which Olympiad training program are you registering for?',k:'radio',o:[MS,PS],r:1,m:'Please select an Olympiad subject.'},
+ {n:'TrainingFormat',l:'Preferred training format',k:'radio',o:['In-person','Online','Either / No preference']}]},
+{t:'Student information',f:[
+ T('FirstName','First name',1,"Please enter the student's first name."),T('MiddleName','Middle name'),
+ T('LastName','Last name',1,"Please enter the student's last name."),T('PreferredName','Preferred name'),
+ {n:'DateOfBirth',l:'Date of birth',k:'date',r:1,m:"Please enter the student's date of birth."},
+ {n:'Gender',l:'Gender',k:'radio',o:['Male','Female'],r:1,m:"Please select the student's gender."},
+ P('StudentPhone','Student phone number'),{n:'StudentEmail',l:'Student email address',k:'email'},
+ T('Community','Residential community / town'),
+ {n:'County',l:'County',k:'select',o:CO,r:1,m:'Please select a county.'}]},
+{t:'School information',f:[
+ T('SchoolName','School name',1,'Please enter the name of the school.'),T('SchoolLocation','School location'),
+ {n:'SchoolCounty',l:'School county',k:'select',o:CO},
+ {n:'Grade',l:'Current grade / class',k:'select',o:GR,r:1,m:'Please select the current grade.'},
+ T('GradeOther','Please specify the grade / class',1,'Please specify the grade.',{w:['Grade','Other']}),
+ T('AcademicYear','Academic year'),T('TeacherName',"Mathematics / Physics teacher's name"),P('TeacherPhone','Teacher phone number (optional)')]},
+{t:'Olympiad level & experience',f:[
+ {n:'Level',l:'What is your current Olympiad training level?',k:'cards',r:1,m:"Please select the student's training level.",o:[
+  ['Beginner','New to Olympiad-style problems and competition training.'],
+  ['Intermediate','Has some experience solving challenging mathematics or physics competition problems.'],
+  ['Advanced','Has strong problem-solving experience and previous exposure to Olympiad-level problems.'],
+  ['Competitive / Olympiad Level','Has significant Olympiad or advanced competition experience.']]},
+ {n:'PreviousCompetition',l:'Have you participated in a Mathematics or Physics competition before?',k:'radio',o:YN,r:1,m:'Please answer Yes or No.'},
+ ...[['CompetitionName','Competition name'],['CompetitionYear','Year'],['CompetitionSubject','Subject'],['CompetitionResult','Result / award']].map(([n,l])=>T(n,l,0,0,{w:['PreviousCompetition','Yes']})),
+ {n:'CompetitionDescription',l:'Brief description of experience',k:'textarea',w:['PreviousCompetition','Yes']},
+ {n:'OlympiadExperience',l:'Have you participated in an Olympiad before?',k:'radio',o:YN,r:1,m:'Please answer Yes or No.'},
+ ...[['OlympiadName','Olympiad name'],['OlympiadYear','Year'],['OlympiadCountry','Country / organization'],['OlympiadResult','Result / award']].map(([n,l])=>T(n,l,0,0,{w:['OlympiadExperience','Yes']}))]},
+{t:'Training interests',f:[
+ {n:'MathAreasStudied',l:'Mathematics: which areas have you studied before?',k:'check',o:[...MATH,'None'],w:WMath},
+ {n:'MathAreaToImprove',l:'Which area would you most like to improve?',k:'radio',o:[...MATH,'All areas'],r:1,m:'Please choose an area to improve.',w:WMath},
+ {n:'PhysNote',k:'note',x:'Physics training areas will be announced by MMLI.',w:WPhys,skip:PHYSICS_TOPICS.length>0},
+ ...(PHYSICS_TOPICS.length?[{n:'PhysicsAreasStudied',l:'Physics: which areas have you studied before?',k:'check',o:[...PHYSICS_TOPICS,'None'],w:WPhys},
+  {n:'PhysicsAreaToImprove',l:'Which area would you most like to improve?',k:'radio',o:[...PHYSICS_TOPICS,'All areas'],w:WPhys}]:[]),
+ {n:'StudentMotivation',l:'Why do you want to join the MMLI Olympiad Training Program?',k:'textarea',r:1,m:'Please tell us why you want to join.'},
+ {n:'StudentGoals',l:'What do you hope to achieve through the program?',k:'textarea',r:1,m:'Please tell us what you hope to achieve.'},
+ {n:'WeeklyTrainingHours',l:'Hours per week you can dedicate to training',k:'radio',o:['1–2 hours','3–5 hours','6–8 hours','More than 8 hours'],r:1,m:'Please select weekly hours.'}]},
+{t:'Parent / guardian information',f:[
+ T('ParentGuardianName','Parent / guardian full name',1,"Please enter the parent/guardian's full name."),
+ T('Relationship','Relationship to student',1,'Please enter the relationship to the student.'),
+ P('ParentPhone','Phone number',1,'Please provide a valid parent/guardian phone number.'),P('AlternativeParentPhone','Alternative phone number'),
+ {n:'ParentEmail',l:'Email address',k:'email'},T('ParentCommunity','Residential community / town'),
+ {n:'PreferredCommunication',l:'Preferred communication method',k:'radio',o:['Phone Call','SMS','WhatsApp','Email']},P('WhatsAppNumber','Parent / guardian WhatsApp number')]},
+{t:'Emergency contact',note:'Kept private. Never shown on student cards.',f:[
+ T('EmergencyContactName','Emergency contact full name',1,'Please enter the emergency contact name.'),
+ T('EmergencyRelationship','Relationship to student',1,'Please enter the relationship.'),
+ P('EmergencyPhone','Phone number',1,'Please provide a valid emergency phone number.'),P('EmergencyAlternativePhone','Alternative phone number')]},
+{t:'Student photo',f:[{n:'Photo',k:'photo',r:1,m:'Please upload a clear photo of the student.'}]},
+{t:'Consent & declaration',f:[
+ {n:'ConsentConfirmed',l:'Parent / guardian consent',k:'agree',r:1,m:'Please confirm parent/guardian consent.',x:'I confirm that I am the parent/guardian of the student named in this application and give permission for the student to participate in the MMLI Olympiad Training Program.'},
+ {n:'ProgramAgreement',l:'Program agreement',k:'agree',r:1,m:'Please confirm the program agreement.',x:'I understand that participation in the program requires commitment to training, assignments, assessments, and other program activities.'},
+ {n:'InformationConfirmed',l:'Information declaration',k:'agree',r:1,m:'Please confirm the information is accurate.',x:'I confirm that the information provided in this registration form is accurate to the best of my knowledge.'}]},
+{t:'Review & submit',f:[]}];
+/* ===== RENDER ===== */
+const $=s=>document.querySelector(s), esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let cur=0,photo='',busy=false,rid=(crypto.randomUUID?crypto.randomUUID():Date.now()+''+Math.random());
+function fld(f){
+ if(f.skip)return'';
+ const w=f.w?` data-w="${f.w[0]}|${f.w[1]}" hidden`:'', rq=f.r?' <span class="req" aria-hidden="true">*</span>':'', id='f_'+f.n;
+ let h=`<div class="fld" data-n="${f.n}"${w}>`;
+ if(f.k==='note')h+=`<p class="note">${f.x}</p>`;
+ else if(f.k==='photo')h+=`<p class="l"><b>Upload a clear, recent photo${rq}</b><br><small>JPG or PNG, up to 8 MB. We resize it automatically.</small></p>
+  <input type="file" id="${id}" accept="image/jpeg,image/png" aria-label="Student photo"><img id="pv" alt="Photo preview" hidden>
+  <button type="button" class="obtn" id="rm" hidden>Remove photo</button>`;
+ else if(f.k==='agree')h+=`<fieldset><legend>${f.l}${rq}</legend><label class="opt"><input type="checkbox" name="${f.n}" value="Yes"><span>${f.x}</span></label></fieldset>`;
+ else if(['radio','check','cards'].includes(f.k))
+  h+=`<fieldset><legend>${f.l}${rq}</legend>`+f.o.map(o=>{const[a,b]=Array.isArray(o)?o:[o];
+   return `<label class="opt"><input type="${f.k==='check'?'checkbox':'radio'}" name="${f.n}" value="${esc(a)}"><span>${f.k==='cards'?`<b>${a}</b><small>${b}</small>`:esc(a)}</span></label>`}).join('')+'</fieldset>';
+ else{h+=`<label class="l" for="${id}">${f.l}${rq}</label>`;
+  if(f.k==='select')h+=`<select id="${id}" name="${f.n}"><option value="">Select…</option>${f.o.map(o=>`<option>${o}</option>`).join('')}</select>`;
+  else if(f.k==='textarea')h+=`<textarea id="${id}" name="${f.n}"></textarea>`;
+  else h+=`<input id="${id}" name="${f.n}" type="${f.k}"${f.k==='tel'?' inputmode="tel"':''}${f.k==='date'?` max="${new Date().toISOString().slice(0,10)}"`:''}>`}
+ return h+`<div class="err" id="e_${f.n}" role="alert"></div></div>`}
+$('#F').innerHTML=S.map((s,i)=>`<section class="step" data-i="${i}" hidden aria-labelledby="h${i}"><h2 id="h${i}" tabindex="-1">${s.t}</h2>${s.note?`<p class="note">${s.note}</p>`:''}${s.f.map(fld).join('')}${i===9?'<div id="rv"></div><div id="eb" hidden role="alert"><b>We couldn’t complete your registration right now.</b> Your information has not been submitted. Please try again.<br><br><button type="button" class="obtn p" id="retry">Try again</button></div>':''}</section>`).join('')
+ +'<input class="hp" name="Website" tabindex="-1" autocomplete="off" aria-hidden="true"><div class="snav"><button type="button" class="obtn" id="bk">Back</button><button type="button" class="obtn p" id="nx">Next</button></div>';
+$('#dots').innerHTML=S.map((s,i)=>`<button type="button" class="dot" data-g="${i}" aria-label="Step ${i+1}: ${s.t}">${i+1}</button>`).join('');
+/* ===== VALUES ===== */
+const el=n=>document.getElementsByName(n);
+const val=n=>{const e=[...el(n)];if(!e.length)return'';if(e[0].type==='radio')return(e.find(x=>x.checked)||{}).value||'';
+ if(e[0].type==='checkbox')return e.filter(x=>x.checked).map(x=>x.value).join(', ');return e[0].value.trim()};
+const box=n=>$(`[data-n="${n}"]`), shown=n=>!box(n).hidden;
+function sync(){document.querySelectorAll('[data-w]').forEach(d=>{const[n,v]=d.dataset.w.split('|');d.hidden=val(n)!==v})}
+$('#F').addEventListener('change',e=>{const t=e.target;
+ if(t.type==='checkbox'&&t.name.endsWith('AreasStudied')&&t.checked)el(t.name).forEach(x=>{if(x!==t&&((t.value==='None')||x.value==='None'))x.checked=false});
+ if(t.id==='f_Photo')pick(t.files[0]);sync()});
+/* ===== VALIDATION ===== */
+const PH=/^\+?[\d\s()-]{7,16}$/, EM=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+function bad(f,m){const b=box(f.n);b.classList.remove('bad');void b.offsetWidth;b.classList.add('bad');$('#e_'+f.n).textContent=m;return 1}
+function check(i){let n=0,first;
+ S[i].f.forEach(f=>{if(f.skip||f.k==='note')return;const b=box(f.n);b.classList.remove('bad');$('#e_'+f.n).textContent='';
+  if(b.hidden)return;const v=f.k==='photo'?photo:val(f.n);let m='';
+  if(f.r&&!v)m=f.m;
+  else if(v&&f.k==='tel'&&!PH.test(v))m='Please enter a valid phone number.';
+  else if(v&&f.k==='email'&&!EM.test(v))m='Please enter a valid email address.';
+  else if(v&&f.n==='DateOfBirth'&&(new Date(v)>new Date()||new Date(v)<new Date('1990-01-01')))m='Please enter a valid date of birth.';
+  if(m){bad(f,m);n++;first=first||b}});
+ if(first)first.querySelector('input,select,textarea,button').focus();return n===0}
+/* ===== NAVIGATION ===== */
+function go(i){const dir=i<cur?'back':'fwd';cur=i;
+ document.querySelectorAll('.step').forEach(s=>{s.hidden=+s.dataset.i!==i;s.classList.remove('fwd','back');
+  if(!s.hidden){void s.offsetWidth;s.classList.add(dir);s.querySelectorAll('.fld').forEach((f,k)=>f.style.setProperty('--i',Math.min(k,12)))}});
+ sync();$('#bar').style.width=(i+1)*10+'%';
+ document.querySelectorAll('.dot').forEach((d,k)=>{d.className='dot'+(k===i?' on':k<i?' ok':'');k===i?d.setAttribute('aria-current','step'):d.removeAttribute('aria-current')});
+ $('#lbl').textContent=`Step ${i+1} of ${S.length}: ${S[i].t}`;
+ $('#bk').hidden=i===0;$('#nx').textContent=i===9?'Submit Olympiad registration':'Next';$('#nx').disabled=false;
+ if(i===9)review();$('#eb').hidden=true;scrollTo(0,0);$('#h'+i).focus({preventScroll:true})}
+$('#nx').onclick=()=>{if(busy)return;if(cur<9){if(check(cur))go(cur+1)}else submit()};
+$('#bk').onclick=()=>go(cur-1);
+$('#dots').onclick=e=>{const g=e.target.dataset.g;if(g!==undefined&&+g<cur)go(+g)};
+/* ===== PHOTO (resize, keep aspect ratio) ===== */
+function pick(file){const e=$('#e_Photo');e.textContent='';box('Photo').classList.remove('bad');if(!file)return rmPhoto();
+ if(!/^image\/(jpeg|png)$/.test(file.type)){rmPhoto();return bad({n:'Photo'},'Please choose a JPG or PNG image.')}
+ if(file.size>8e6){rmPhoto();return bad({n:'Photo'},'This photo is larger than 8 MB. Please choose a smaller one.')}
+ const img=new Image();img.onload=()=>{const s=Math.min(1,800/Math.max(img.width,img.height)),c=document.createElement('canvas');
+  c.width=Math.round(img.width*s);c.height=Math.round(img.height*s);const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.drawImage(img,0,0,c.width,c.height);
+  photo=c.toDataURL('image/jpeg',.85);$('#pv').src=photo;$('#pv').hidden=false;$('#rm').hidden=false;URL.revokeObjectURL(img.src)};
+ img.onerror=()=>bad({n:'Photo'},'We couldn’t read this image. Please try another.');img.src=URL.createObjectURL(file)}
+function rmPhoto(){photo='';$('#f_Photo').value='';$('#pv').hidden=true;$('#rm').hidden=true}
+$('#rm').onclick=rmPhoto;
+/* ===== REVIEW ===== */
+function review(){$('#rv').innerHTML=S.slice(0,9).map((s,i)=>`<div class="rv"><h3>${s.t.toUpperCase()}<button type="button" data-e="${i}">Edit</button></h3>`+
+ (i===7?(photo?`<img id="pv2" src="${photo}" alt="Student photo" style="max-width:110px;border-radius:6px">`:'<p>No photo</p>'):
+ s.f.filter(f=>!f.skip&&f.k!=='note'&&shown(f.n)).map(f=>[f.l||f.n,val(f.n)]).filter(r=>r[1]).map(([l,v])=>`<p><b>${esc(String(l).replace(/^Mathematics: /,''))}:</b> ${esc(v)}</p>`).join(''))+'</div>').join('')}
+$('#rv').onclick=e=>{if(e.target.dataset.e)go(+e.target.dataset.e)};
+/* ===== SUBMIT ===== */
+function payload(){const d={};S.forEach(s=>s.f.forEach(f=>{if(f.skip||f.k==='note'||f.k==='photo')return;d[f.n]=shown(f.n)?val(f.n):''}));
+ if(d.Grade==='Other')d.Grade='Other: '+d.GradeOther;delete d.GradeOther;
+ d.PhotoData=photo;d.ReqId=rid;d.Module='OLYMPIAD';d.Website=$('.hp').value;return d}
+async function submit(){if(busy)return;
+ for(let i=0;i<9;i++)if(!check(i)){go(i);check(i);return}
+ busy=true;const b=$('#nx');b.disabled=true;b.textContent='Submitting…';$('#eb').hidden=true;
+ try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(payload())});
+  const j=await r.json();if(!j.ok)throw j;done(j)}
+ catch(x){$('#eb').hidden=false;b.disabled=false;b.textContent='Submit Olympiad registration';$('#eb').scrollIntoView({block:'center'})}
+ busy=false}
+$('#retry').onclick=submit;
+function done(j){const rows=[['Subject',j.subject],['Level',j.level],['School',j.school],['Status',j.status]];
+ const body=`<svg class="ck" viewBox="0 0 52 52" width="72" height="72" aria-hidden="true"><circle cx="26" cy="26" r="24" fill="none" stroke="#6AAA3A" stroke-width="3"/><path d="M14 27l8 8 16-17" fill="none" stroke="#6AAA3A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg><h2>Registration submitted successfully! 🎉</h2><p>Thank you for registering for the<br><b>MMLI Olympiad Training Program</b></p><p>Registration ID</p><div class="id">${esc(j.id)}</div>
+ <dl>${rows.map(([a,b])=>`<dt>${a}</dt><dd>${esc(b)}</dd>`).join('')}</dl>
+ <p>Your registration has been received and is under review. MMLI will contact you or your parent/guardian using the information provided.</p>`;
+ $('#done').innerHTML=body+`<div class="noprint"><button class="obtn p" onclick="print()">Print confirmation</button> <button class="obtn" id="dl">Download confirmation</button> <a class="obtn" style="display:inline-flex;align-items:center;text-decoration:none" href="${SITE}">Return to MMLI website</a></div>`;
+ $('#F').hidden=true;$('#done').hidden=false;$('#prog').hidden=true;scrollTo(0,0);
+ $('#dl').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([`<meta charset=utf-8><title>MMLI Confirmation</title><body style="font-family:sans-serif;text-align:center">${body}`],{type:'text/html'}));a.download=j.id+'-confirmation.html';a.click()}}
+{const nb=document.querySelector('.navbar'),sv=()=>document.documentElement.style.setProperty('--navh',nb.offsetHeight+'px');sv();if(window.ResizeObserver)new ResizeObserver(sv).observe(nb);}
+go(0);
+</script></body></html>
